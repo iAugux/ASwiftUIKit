@@ -5,7 +5,7 @@ import SwiftUI
 
 public extension Shape {
     @ViewBuilder
-    func compatipleGradient(_ color: Color) -> some View {
+    func compatibleGradient(_ color: Color) -> some View {
         if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
             self.fill(color.gradient)
         } else {
