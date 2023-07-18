@@ -1,0 +1,106 @@
+# File Options
+
+# --symlinks ignore
+--exclude "**/Pods","Pods", "fastlane", "**/.build",".build"
+--swiftversion 5.7
+
+# Format Options
+--modifierorder public,override
+
+--allman false
+--closingparen balanced
+--commas always
+--decimalgrouping 3,5
+--disable blankLinesAroundMark
+--disable indent # Disabled because Xcode does a decent job already and this rule is broken in many aspects
+--disable organizeDeclarations
+--disable preferKeyPath
+--disable redundantExtensionACL
+--disable redundantParens # Disabled because it makes reading significantly more difficult when there're ANDs and ORs in the same expression.
+--disable redundantRawValues
+--disable redundantReturn
+--disable redundantSelf # Disabled simply because I don't trust linters to potentially change the scope of the variables/functions 😱
+--disable redundantType # Disabled because it would transform all "Type" into ".init()".
+--disable sortedSwitchCases
+--disable spaceAroundOperators
+--disable spaceInsideBrackets
+--disable trailingClosures
+--disable wrap
+--disable wrapEnumCases
+--disable wrapMultilineStatementBraces
+--disable wrapSwitchCases
+--elseposition same-line
+--emptybraces no-space
+--enable andOperator
+--enable anyObjectProtocol
+--enable blankLinesAtEndOfScope
+--enable blankLinesAtStartOfScope
+--enable blankLinesBetweenScopes
+--enable consecutiveBlankLines
+--enable consecutiveSpaces
+--enable duplicateImports
+--enable enumNamespaces
+--enable initCoderUnavailable
+--enable isEmpty
+--enable leadingDelimiters
+# --enable markTypes
+--enable numberFormatting
+--enable redundantBackticks
+--enable redundantBreak
+--enable redundantFileprivate
+--enable redundantGet
+--enable redundantInit
+--enable redundantLet
+--enable redundantLetError
+--enable redundantNilInit
+--enable redundantObjc
+--enable redundantParens
+--enable redundantPattern
+--enable redundantVoidReturnType
+--enable spaceAroundBraces
+--enable spaceAroundBrackets
+--enable spaceAroundComments
+--enable spaceAroundGenerics
+--enable spaceAroundParens
+--enable spaceInsideBraces
+--enable spaceInsideComments
+--enable spaceInsideGenerics
+--enable spaceInsideParens
+--enable strongifiedSelf
+--enable strongOutlets
+--enable todos
+--enable wrapArguments
+--enable wrapAttributes
+--exponentcase lowercase
+--exponentgrouping disabled
+--extensionacl on-extension
+--extensionmark "MARK: - %t Conformance to %c"
+--fractiongrouping disabled
+--funcattributes preserve
+--groupedextension "MARK: - %t Conformance to %c"
+--guardelse auto
+--header ignore
+--hexgrouping ignore
+--hexliteralcase uppercase
+--ifdef indent
+--importgrouping testable-first
+--linebreaks lf
+--markextensions always
+--marktypes never
+--octalgrouping ignore
+--patternlet inline
+--semicolons inline
+--shortoptionals always
+--stripunusedargs closure-only
+--tabwidth 4
+--trimwhitespace always
+--typeattributes prev-line
+--varattributes preserve
+--voidtype void
+--wraparguments preserve
+--wrapcollections before-first
+--wrapconditions preserve
+--wrapparameters preserve
+--wrapreturntype preserve
+--yodaswap always
+
