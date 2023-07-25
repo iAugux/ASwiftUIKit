@@ -152,7 +152,3 @@ public extension PreviewDevice {
     static let appleWatchSeries444mm = PreviewDevice(rawValue: "Apple Watch Series 4 - 44mm")
 }
 #endif
-
-// MARK: - Helpers
-/// Returns `f(x)` if `x` is non-`nil`; otherwise returns `nil`
-@discardableResult func given<T, U>(_ x: T?, _ f: (T) -> U?) -> U? { return x != nil ? f(x!) : nil }
