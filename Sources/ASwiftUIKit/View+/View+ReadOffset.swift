@@ -5,7 +5,7 @@ import SwiftUI
 
 @available(iOS 15.0, macOS 12.0, watchOS 8.0, *)
 public extension View {
-    func readOffset(_ coordinateSpace: CoordinateSpace = .global, onChange: @escaping (CGFloat) -> Void) -> some View {
+    func readOffsetY(_ coordinateSpace: CoordinateSpace = .global, onChange: @escaping (CGFloat) -> Void) -> some View {
         overlay {
             GeometryReader { proxy in
                 let minY = proxy.frame(in: coordinateSpace).minY
@@ -16,7 +16,7 @@ public extension View {
         }
     }
 
-    func offset(_ coordinateSpace: CoordinateSpace = .global, offset: Binding<CGFloat>) -> some View {
+    func offsetY(_ coordinateSpace: CoordinateSpace = .global, offset: Binding<CGFloat>) -> some View {
         overlay {
             GeometryReader { proxy in
                 let minY = proxy.frame(in: coordinateSpace).minY
