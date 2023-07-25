@@ -16,7 +16,7 @@ public struct ActivityView: View {
 
     public var body: some View {
         _ActivityView(activityItems: activityItems, applicationActivities: applicationActivities)
-            .ignoresSafeArea()
+            .ignoresSafeArea(edges: .bottom)
     }
 }
 

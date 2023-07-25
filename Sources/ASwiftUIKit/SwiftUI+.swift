@@ -99,25 +99,6 @@ public extension View {
 }
 
 #if os(iOS)
-// MARK: - Blur Effect View
-public struct BlurEffectView: UIViewRepresentable {
-    private let style: UIBlurEffect.Style?
-
-    public init(style: UIBlurEffect.Style? = nil) {
-        self.style = style
-    }
-
-    public func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView {
-        UIVisualEffectView(effect: given(style) { UIBlurEffect(style: $0) })
-    }
-
-    public func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) {
-        uiView.effect = given(style) { UIBlurEffect(style: $0) }
-    }
-}
-#endif
-
-#if os(iOS)
 // MARK: - Corner Radius
 public extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {

@@ -19,7 +19,7 @@ public struct SafariView: View {
 
     public var body: some View {
         _SafariView(url: url, entersReaderIfAvailable: entersReaderIfAvailable, barCollapsingEnabled: barCollapsingEnabled)
-            .ignoresSafeArea()
+            .ignoresSafeArea(edges: .bottom)
     }
 }
 
