@@ -10,7 +10,7 @@ import UIKit
 
 #if os(macOS)
 typealias PlatformColor = NSColor
-#elseif os(iOS) || os(watchOS)
+#elseif os(iOS) || os(watchOS) || os(tvOS)
 typealias PlatformColor = UIColor
 #endif
 public extension PlatformColor {
