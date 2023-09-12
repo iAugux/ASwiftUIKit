@@ -20,14 +20,6 @@ public extension PlatformColor {
 }
 
 public extension Color {
-    private init(_uiColor: UIColor) {
-        if #available(iOS 15.0, *) {
-            self.init(uiColor: _uiColor)
-        } else {
-            self.init(_uiColor)
-        }
-    }
-
     init(hex: UInt, alpha: Double = 1) {
         self.init(
             .sRGB,
@@ -43,6 +35,14 @@ public extension Color {
     }
 
 #if os(iOS)
+    private init(_uiColor: UIColor) {
+        if #available(iOS 15.0, *) {
+            self.init(uiColor: _uiColor)
+        } else {
+            self.init(_uiColor)
+        }
+    }
+
     static let systemWhite: Color = .init(UIColor(dynamicProvider: { traitCollection -> UIColor in
         return traitCollection.userInterfaceStyle == .dark ? .black : .white
     }))
