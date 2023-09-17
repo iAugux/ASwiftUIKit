@@ -15,8 +15,13 @@ public struct ActivityView: View {
     }
 
     public var body: some View {
-        _ActivityView(activityItems: activityItems, applicationActivities: applicationActivities)
-            .ignoresSafeArea(edges: .bottom)
+        if #available(iOS 17.0, *) {
+            // if ignore bottom safe area, there will be a glitch on top navigation bar.
+            _ActivityView(activityItems: activityItems, applicationActivities: applicationActivities)
+        } else {
+            _ActivityView(activityItems: activityItems, applicationActivities: applicationActivities)
+                .ignoresSafeArea(edges: .bottom)
+        }
     }
 }
 
