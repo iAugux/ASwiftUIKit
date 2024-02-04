@@ -65,7 +65,7 @@ public extension View {
 
 public extension View {
     @ViewBuilder
-    func `if`(_ conditional: Bool, content: (Self) -> some View) -> some View {
+    func `if`(_ conditional: Bool, @ViewBuilder content: (Self) -> some View) -> some View {
         if conditional {
             content(self)
         } else {
