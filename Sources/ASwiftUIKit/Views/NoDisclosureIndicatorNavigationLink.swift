@@ -18,7 +18,7 @@ public struct NoDisclosureIndicatorNavigationLink<Label, Destination> : View whe
         self.destination = destination
     }
 
-    public init<S>(_ title: S, @ViewBuilder destination: @escaping () -> Destination) where S : StringProtocol {
+    public init(_ title: some StringProtocol, @ViewBuilder destination: @escaping () -> Destination) {
         self.text = Text(title)
         self.destination = destination
     }

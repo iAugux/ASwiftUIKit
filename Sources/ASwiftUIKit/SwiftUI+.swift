@@ -1,4 +1,4 @@
-//  ASKit+SwiftUI.swift
+//  SwiftUI+.swift
 //  Created by Augus <iAugux@gmail.com>.
 //  Copyright © 2020 iAugus. All rights reserved.
 
@@ -52,48 +52,46 @@ public extension View {
         return view
     }
 
+    @ViewBuilder
     func compatibleGroupedListStyle() -> some View {
-        Group {
-            if #available(iOS 14.0, *) {
-                listStyle(InsetGroupedListStyle())
-            } else {
-                environment(\.horizontalSizeClass, .regular).listStyle(GroupedListStyle())
-            }
+        if #available(iOS 14.0, *) {
+            listStyle(InsetGroupedListStyle())
+        } else {
+            environment(\.horizontalSizeClass, .regular).listStyle(GroupedListStyle())
         }
     }
 }
 #endif
 
 public extension View {
+    @ViewBuilder
     func `if`(_ conditional: Bool, content: (Self) -> some View) -> some View {
         if conditional {
-            return AnyView(content(self))
+            content(self)
         } else {
-            return AnyView(self)
+            self
         }
     }
 }
 
 public extension View {
     /// If condition is met, apply modifier, otherwise, leave the view untouched
+    @ViewBuilder
     func conditionalModifier(_ condition: Bool, _ modifier: some ViewModifier) -> some View {
-        Group {
-            if condition {
-                self.modifier(modifier)
-            } else {
-                self
-            }
+        if condition {
+            self.modifier(modifier)
+        } else {
+            self
         }
     }
 
     /// Apply trueModifier if condition is met, or falseModifier if not.
+    @ViewBuilder
     func conditionalModifier(_ condition: Bool, _ trueModifier: some ViewModifier, _ falseModifier: some ViewModifier) -> some View {
-        Group {
-            if condition {
-                self.modifier(trueModifier)
-            } else {
-                self.modifier(falseModifier)
-            }
+        if condition {
+            self.modifier(trueModifier)
+        } else {
+            self.modifier(falseModifier)
         }
     }
 }

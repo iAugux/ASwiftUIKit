@@ -38,8 +38,8 @@ public struct AlertContext: Identifiable {
     }
 }
 
-extension AlertContext {
-    public func alertBuilder() -> Alert {
+public extension AlertContext {
+    func alertBuilder() -> Alert {
         if let primaryButton, let secondaryButton {
             return Alert(
                 title: title,
