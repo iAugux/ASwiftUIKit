@@ -11,4 +11,13 @@ public extension View {
     func eraseToAnyView() -> AnyView {
         AnyView(self)
     }
+
+    @ViewBuilder
+    func hidden(_ hidden: Bool) -> some View {
+        if hidden {
+            self.hidden()
+        } else {
+            self
+        }
+    }
 }
