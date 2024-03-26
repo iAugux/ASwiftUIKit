@@ -10,16 +10,18 @@ public struct SafariView: View {
     let url: URL
     let entersReaderIfAvailable: Bool
     let barCollapsingEnabled: Bool
+    let ignoresSafeAreaForEdges: Edge.Set
 
-    public init(url: URL, entersReaderIfAvailable: Bool = false, barCollapsingEnabled: Bool = true) {
+    public init(url: URL, entersReaderIfAvailable: Bool = false, barCollapsingEnabled: Bool = true, ignoresSafeAreaForEdges: Edge.Set = [.bottom]) {
         self.url = url
         self.entersReaderIfAvailable = entersReaderIfAvailable
         self.barCollapsingEnabled = barCollapsingEnabled
+        self.ignoresSafeAreaForEdges = ignoresSafeAreaForEdges
     }
 
     public var body: some View {
         _SafariView(url: url, entersReaderIfAvailable: entersReaderIfAvailable, barCollapsingEnabled: barCollapsingEnabled)
-            .ignoresSafeArea(edges: .bottom)
+            .ignoresSafeArea(edges: ignoresSafeAreaForEdges)
     }
 }
 
