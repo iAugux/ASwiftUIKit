@@ -8,5 +8,9 @@ public extension EdgeInsets {
         self.init(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
 
+    init(uniform: CGFloat) {
+        self.init(horizontal: uniform, vertical: uniform)
+    }
+
     static let zero: EdgeInsets = .init(horizontal: 0, vertical: 0)
 }
