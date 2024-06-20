@@ -6,7 +6,11 @@ import SwiftUI
 @available(iOS 14.0, macOS 11.0, *)
 public extension LabelStyle where Self == CenteredLabelStyle {
     static var centered: Self {
+#if os(watchOS)
+        .init(spacing: nil)
+#else
         .init(spacing: 0)
+#endif
     }
 
     static func centered(spacing: CGFloat?) -> Self {
