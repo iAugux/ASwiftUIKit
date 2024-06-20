@@ -23,6 +23,15 @@ public struct CenteredLabelStyle: LabelStyle {
     let spacing: CGFloat?
 
     public func makeBody(configuration: Configuration) -> some View {
+#if os(macOS)
+        HStack(spacing: spacing) {
+            configuration.icon
+            Divider()
+                .frame(height: 0)
+                .opacity(0)
+            configuration.title
+        }
+#else
         // when spacing is 0, the spacing and fonts will be same as default style except the icon position.
         HStack(spacing: spacing) {
             Label {
@@ -36,5 +45,6 @@ public struct CenteredLabelStyle: LabelStyle {
             }
             configuration.title
         }
+#endif
     }
 }
