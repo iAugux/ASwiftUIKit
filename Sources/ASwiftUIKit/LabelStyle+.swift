@@ -6,7 +6,7 @@ import SwiftUI
 @available(iOS 14.0, macOS 11.0, *)
 public extension LabelStyle where Self == CenteredLabelStyle {
     static var centered: Self {
-        .init(spacing: nil)
+        .init(spacing: 0)
     }
 
     static func centered(spacing: CGFloat?) -> Self {
@@ -22,8 +22,11 @@ public struct CenteredLabelStyle: LabelStyle {
         // when spacing is 0, the spacing and fonts will be same as default style except the icon position.
         HStack(spacing: spacing) {
             Label {
-                Divider()
-                    .opacity(0)
+                HStack {
+                    // wrapped in HStack to make sure the Divider renderred as vertical line (instead of Horizontal line when using Xcode 16)
+                    Divider()
+                }
+                .opacity(0)
             } icon: {
                 configuration.icon
             }
