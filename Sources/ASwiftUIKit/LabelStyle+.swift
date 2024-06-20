@@ -9,7 +9,6 @@ public extension LabelStyle where Self == CenteredLabelStyle {
         .init(spacing: nil)
     }
 
-    @available(iOS, deprecated, message: "use the `centered` should be same as default style's spacing and font now, consider use `centered`.")
     static func centered(spacing: CGFloat?) -> Self {
         .init(spacing: spacing)
     }
