@@ -72,6 +72,15 @@ public extension View {
             self
         }
     }
+
+    @ViewBuilder
+    func ifLet<T>(_ value: T?, @ViewBuilder content: (Self, T) -> some View) -> some View {
+        if let unwrappedValue = value {
+            content(self, unwrappedValue)
+        } else {
+            self
+        }
+    }
 }
 
 public extension View {
