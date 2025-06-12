@@ -4,13 +4,13 @@
 import SwiftUI
 #if os(macOS)
 import AppKit
-#elseif os(iOS)
+#else
 import UIKit
 #endif
 
 #if os(macOS)
 typealias PlatformColor = NSColor
-#elseif os(iOS) || os(watchOS) || os(tvOS)
+#else
 typealias PlatformColor = UIColor
 #endif
 public extension PlatformColor {
