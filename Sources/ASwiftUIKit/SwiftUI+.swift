@@ -105,6 +105,18 @@ public extension View {
     }
 }
 
+@available(iOS 16.0, macOS 13.0, watchOS 9.0, *)
+public extension ToolbarContent {
+    @ToolbarContentBuilder
+    func `if`(_ conditional: Bool, @ToolbarContentBuilder content: (Self) -> some ToolbarContent) -> some ToolbarContent {
+        if conditional {
+            content(self)
+        } else {
+            self
+        }
+    }
+}
+
 #if os(iOS)
 // MARK: - Corner Radius
 public extension View {

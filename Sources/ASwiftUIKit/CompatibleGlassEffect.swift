@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-@available(iOS 14.0, macOS 11.0, watchOS 7.0, *)
+@available(iOS 14.0, macOS 11.0, tvOS 16.0, watchOS 7.0, *)
 @available(visionOS, unavailable)
 struct CompatibleGlassEffect: ViewModifier {
     func body(content: Content) -> some View {
@@ -18,7 +18,7 @@ struct CompatibleGlassEffect: ViewModifier {
     }
 }
 
-@available(iOS 14.0, macOS 11.0, watchOS 7.0, *)
+@available(iOS 14.0, macOS 11.0, tvOS 16.0, watchOS 7.0, *)
 @available(visionOS, unavailable)
 public extension View {
     func compatibleGlassEffect() -> some View {
