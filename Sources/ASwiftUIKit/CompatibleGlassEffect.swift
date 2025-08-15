@@ -20,7 +20,7 @@ struct CompatibleGlassEffect: ViewModifier {
 
 @available(iOS 14.0, macOS 11.0, watchOS 7.0, *)
 @available(visionOS, unavailable)
-extension View {
+public extension View {
     func compatibleGlassEffect() -> some View {
         self.modifier(CompatibleGlassEffect())
     }
