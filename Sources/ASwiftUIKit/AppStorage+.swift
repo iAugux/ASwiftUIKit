@@ -35,3 +35,16 @@ extension Array: @retroactive RawRepresentable where Element: Codable {
         return result
     }
 }
+
+extension CGFloat: @retroactive RawRepresentable {
+    public typealias RawValue = String
+
+    public init?(rawValue: String) {
+        guard let value = Double(rawValue) else { return nil }
+        self = CGFloat(value)
+    }
+
+    public var rawValue: String {
+        String(Double(self))
+    }
+}
