@@ -48,3 +48,17 @@ extension CGFloat: @retroactive RawRepresentable {
         String(Double(self))
     }
 }
+
+extension CGSize: @retroactive RawRepresentable {
+    public typealias RawValue = String
+
+    public init?(rawValue: RawValue) {
+        let components = rawValue.split(separator: ",").compactMap { Double($0) }
+        guard components.count == 2 else { return nil }
+        self.init(width: components[0], height: components[1])
+    }
+
+    public var rawValue: RawValue {
+        "\(width),\(height)"
+    }
+}
