@@ -5,7 +5,7 @@ import SwiftUI
 
 public extension Binding {
     /// Turn `Binding<T?>` into a `Binding<T>?`
-    func unwrap<T>() -> Binding<T>? where T? == Value {
+    func unwrap<T: Sendable>() -> Binding<T>? where T? == Value {
         guard let value = wrappedValue else { return nil }
         return Binding<T> {
             value

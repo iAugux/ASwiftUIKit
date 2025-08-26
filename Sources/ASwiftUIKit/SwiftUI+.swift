@@ -11,16 +11,20 @@ import UIKit
 
 // MARK: - Binding Extensions
 public extension Binding {
-    /// When the `Binding`'s `wrappedValue` changes, the given closure is executed.
-    /// - Parameter closure: Chunk of code to execute whenever the value changes.
+    /// When the `Binding`'s `wrappedValue` changes, the given closure is executed on the MainActor.
+    /// - Parameter closure: Chunk of code to execute on the MainActor whenever the value changes.
     /// - Returns: New `Binding`.
-    func onUpdate(_ closure: @escaping () -> Void) -> Binding<Value> {
-        Binding(get: {
-            wrappedValue
-        }, set: { newValue in
-            wrappedValue = newValue
-            closure()
-        })
+    @MainActor
+    func onUpdate(_ closure: @escaping @MainActor () -> Void) -> Binding<Value> {
+        Binding(
+            get: {
+                self.wrappedValue
+            },
+            set: { newValue in
+                self.wrappedValue = newValue
+                closure()
+            }
+        )
     }
 }
 

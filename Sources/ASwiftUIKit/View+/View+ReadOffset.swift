@@ -32,7 +32,7 @@ public extension View {
 
 @available(iOS 15.0, macOS 12.0, watchOS 8.0, *)
 struct OffsetKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
+    static let defaultValue: CGFloat = 0
 
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
