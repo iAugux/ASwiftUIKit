@@ -69,7 +69,7 @@ public extension View {
 
 public extension View {
     @ViewBuilder
-    func `if`(_ conditional: Bool, @ViewBuilder content: (Self) -> some View) -> some View {
+    func `if`<Content: View>(_ conditional: Bool, @ViewBuilder content: (Self) -> Content) -> some View {
         if conditional {
             content(self)
         } else {
@@ -78,11 +78,20 @@ public extension View {
     }
 
     @ViewBuilder
-    func ifLet<T>(_ value: T?, @ViewBuilder content: (Self, T) -> some View) -> some View {
+    func ifLet<T, Content: View>(_ value: T?, @ViewBuilder content: (Self, T) -> Content) -> some View {
         if let unwrappedValue = value {
             content(self, unwrappedValue)
         } else {
             self
+        }
+    }
+
+    @ViewBuilder
+    func `if`<Content: View>(_ condition: Bool, @ViewBuilder closure: (Self) -> Content, @ViewBuilder otherwise: (Self) -> Content) -> some View {
+        if condition {
+            closure(self)
+        } else {
+            otherwise(self)
         }
     }
 }
